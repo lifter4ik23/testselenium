@@ -18,7 +18,7 @@ public class Task1 {
 
     @Before
     public void setUp() throws Exception {
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Alex\\IdeaProjects\\testselenium\\drivers\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
         driver = new FirefoxDriver();
         baseUrl = "https://gossluzhba.gov.ru/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
