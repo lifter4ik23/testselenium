@@ -1,11 +1,8 @@
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
-
 import org.junit.*;
-
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
-
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -40,6 +37,17 @@ public class Task1 {
         driver.findElement(By.linkText("Вакансии")).click();
         try {
             assertEquals("Госслужба/Вакансии", driver.getTitle());
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+        try {
+            assertEquals("Старший специалист 1 разряда", driver.findElement(By.cssSelector("p.title")).getText());
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+        driver.findElement(By.cssSelector("p.title")).click();
+        try {
+            assertEquals("Госслужба/Вакансии/Старший специалист 1 разряда", driver.getTitle());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
